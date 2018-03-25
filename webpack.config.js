@@ -1,6 +1,7 @@
 const {resolve} = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const port = process.env.PORT || 3000;
+const webpack = require('webpack');
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -25,32 +26,38 @@ module.exports = {
         }
       }, {
         test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader, {
-            loader: "css-loader",
-            options: {
-              modules: true,
-              camelCase: true,
-              sourceMap: true
-            }
-          }, {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true,
-              precision: 8,
-              data: "$ENV: " + "PRODUCTION" + ";"
-            }
-          }
+        use: [ 'style-loader', 'css-loader', 'sass-loader'
+
+          // MiniCssExtractPlugin.loader, {
+          //   loader: "css-loader",
+          //   options: {
+          //     modules: true,
+          //     camelCase: true,
+          //     sourceMap: true
+          //   }
+          // }, {
+          //   loader: "sass-loader",
+          //   options: {
+          //     sourceMap: true,
+          //     precision: 8,
+          //     data: "$ENV: " + "PRODUCTION" + ";"
+          //   }
+          // }
         ]
       }
     ]
   },
   devServer: {
+    compress: true,
     host: 'localhost',
-    port: port
+    port: port,
+    historyApiFallback: true,
+    disableHostCheck: true,
+    hot: true
   },
   devtool: 'inline-source-map',
   plugins: [
+    // new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       title: "Appgrade",
       template: resolve("public", "index.html"),
