@@ -7,7 +7,7 @@ export default function() {
     },
     {
       id: 2,
-      foo: "bar",
+      foo: "r",
       baz: "blah"
     },
     {
