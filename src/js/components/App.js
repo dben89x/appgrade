@@ -1,11 +1,10 @@
 import React from 'react'
 require('../../styles/style.scss')
-import Projects from '../containers/projects.js'
+import Projects from '../containers/projects'
+import Home from '../pages/Home'
 
 const App = () => (<div className="root">
-  <h1>Projects</h1>
-  <Projects></Projects>
-  <h2>Foo</h2>
+  <Home/>
 </div>)
 
 export default App
