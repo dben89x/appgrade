@@ -37,7 +37,9 @@ body {
   position: relative;
   // background: linear-gradient(150deg, $darkBlue, $green), linear-gradient(127deg, $green, $darkBlue);
   .overlay-edges {
+    position: absolute;
     height: 50%;
+    width: 100%;
     background: white;
     border: 1px solid $green;
     -ms-transform: skewY(2deg);
@@ -45,6 +47,12 @@ body {
     -ms-transform-origin: 0 100%;
     transform-origin: 0 100%;
     background: $green;
+  }
+  .overlay-top {
+    top: 0;
+  }
+  .overlay-bottom {
+    bottom: 0;
   }
 
   #polygon1 {
@@ -55,6 +63,12 @@ body {
     background: rgba(0,0,0,0.1);
     // -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 40%);
     clip-path: polygon(0 20%, 80% 10%, 100% 100%, 20% 90%);
+  }
+  .content {
+    top: 0;
+    left: 0;
+    padding: 20px;
+    height: 100%;
   }
 }
 

@@ -8,6 +8,7 @@ const App = () => (<div id='banner1' className='banner'>
   <div id='overlay1'>
   </div>
   <div id='overlay2'>
+    <div className='content'></div>
     <div className='overlay-top overlay-edges'></div>
     <div className='overlay-bottom overlay-edges'></div>
     <div id='polygon1'></div>
