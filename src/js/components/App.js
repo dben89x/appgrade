@@ -49,21 +49,6 @@ export default class App extends React.Component {
         </div>
       </span>
 
-      {/* <div id='overlay1'></div>
-      <div id='overlay2'>
-        <div className='content'></div>
-        <div className='overlay-top overlay-edges'></div>
-        <div className='overlay-bottom overlay-edges'></div>
-        <div id='polygon1'></div>
-      </div>
-      <div className='circle-container'>
-        <div className='circle'>
-          <h1>foo</h1>
-          <h2>bar</h2>
-        </div>
-      </div> */
-      }
-
     </div>)
   }
 }
