@@ -11,6 +11,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117251907-2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
+
     function gtag() {
       dataLayer.push(arguments);
     }
@@ -18,13 +19,77 @@
     gtag('config', 'UA-117251907-2');
   </script>
   <title>Appgrade - Upgrade your App</title>
+  <style>
+    #spinner.spinner-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: transparent;
+    }
+
+    .svg-loader {
+      max-width: 7rem;
+      width: 100%;
+      height: auto;
+      stroke-linecap: round;
+    }
+
+    circle {
+      stroke-width: 4;
+      fill: none;
+      animation-name: spinner;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+      transform-origin: 100px 100px;
+      will-change: transform;
+
+    }
+
+    circle:nth-of-type(1) {
+      stroke-dasharray: 350;
+      animation-delay: 0.2s;
+    }
+
+    circle:nth-of-type(2) {
+      stroke-dasharray: 250;
+      animation-delay: 0.4s;
+    }
+
+    circle:nth-of-type(3) {
+      stroke-dasharray: 150;
+      animation-delay: 0.6s;
+    }
+
+    circle:nth-of-type(4) {
+      stroke-dasharray: 50;
+      animation-delay: 0.8s;
+    }
+
+    @keyframes spinner {
+      50% {
+        transform: rotate(1080deg);
+      }
+    }
+  </style>
   <!-- https://www.searchenginejournal.com/important-tags-seo/156440/ -->
 
 </head>
 
 <body>
-  <div id="root">
+  <div id='spinner' class="spinner-container">
+    <svg class="svg-loader" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="80" stroke="#92374D"/>
+      <circle cx="100" cy="100" r="60" stroke="#439A86"/>
+      <circle cx="100" cy="100" r="40" stroke="#92374D"/>
+      <circle cx="100" cy="100" r="20" stroke="#439A86"/>
+    </svg>
   </div>
+  <div id="root" style="display:none">
+  </div>
+  <script>
+  </script>
 </body>
 
 </html>
