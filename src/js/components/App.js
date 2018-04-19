@@ -26,6 +26,12 @@ export default class App extends React.Component {
         duration: 1000,
         queue: false
       })
+      $('#appgradeText h1').animate({
+       'letter-spacing': '5px'
+     }, {
+       duration: 500,
+       queue: false
+     })
       $('#appgradeText h1:nth-child(1)').animate({
         'margin-right': '0'
       }, {
@@ -36,9 +42,31 @@ export default class App extends React.Component {
         'margin-left': '0'
       }, {
         duration: 500,
-        queue: false
+        queue: true
       })
-    }, 500);
+      window.setTimeout(() => {
+        $('#appgradeText h2').animate({
+          'opacity': '1', 'margin-top': '20px'
+        }, {
+          duration: 500,
+          queue: false
+        })
+        window.setTimeout(() => {
+          $('#appgradeText').animate({
+            'opacity': '0', 'display': 'none'
+          }, 500, ()=>{
+            $('#appgradeText').css('display', 'none')
+            $('#otherText').css('display', 'block')
+            $('#void .arrow-container').css('display', 'block')
+            $('#otherText, #void .arrow-container').each( (i, el)=>{
+              $(el).animate({
+                'opacity': '1'
+              }, 500 )
+            })
+          })
+        }, 1500 )
+      }, 500 )
+    }, 500)
   }
 
   render() {
@@ -51,63 +79,24 @@ export default class App extends React.Component {
     //   </svg>
     // </div>)
 
-    const Side = ({pageName, side}) => {
-      console.log({pageName})
-      return (<div className={`child ${pageName} ${side}`}>
-        <div className="link-container home">
-          <a onClick={(e) => this.rotateCube(e, "front")} href="#">home</a>
-        </div>
-        <div className="link-container secret">
-          <a onClick={(e) => this.rotateCube(e, "back")} href="#">secret</a>
-        </div>
-        <div className="link-container about">
-          <a onClick={(e) => this.rotateCube(e, "top")} href="#">about</a>
-        </div>
-
-        <div className="link-container projects">
-          <a onClick={(e) => this.rotateCube(e, "right")} href="#">projects</a>
-        </div>
-
-        <div className="link-container services">
-          <a onClick={(e) => this.rotateCube(e, "bottom")} href="#">services</a>
-        </div>
-
-        <div className="link-container contact">
-          <a onClick={(e) => this.rotateCube(e, "left")} href="#">contact</a>
-        </div>
-        {/* {extraHTML} */}
-      </div>)
-    }
-
-    let FrontHTML = () => (<span id="appgradeText">
-      <div className="headerContainer">
-        <h1>app</h1>
-        <h1>grade</h1>
-      </div>
-    </span>)
-    let AboutHTML = () => (<p>About</p>)
-    console.log(<AboutHTML/>)
-    let ProjectsHTML = () => (<p>Projects</p>)
-    let ServicesHTML = () => (<p>Services</p>)
-    let ContactHTML = () => (<p>Contact</p>)
-    let SecretHTML = () => (<p>Secret</p>)
     return (<div id='void'>
-      <div id="cube" className="show-front">
-        <Side side="front" pageName="home"/>
-        <Side side="top" pageName="about"/>
-        <Side side="right" pageName="projects"/>
-        <Side side="bottom" pageName="services"/>
-        <Side side="left" pageName="contact"/>
-        <Side side="back" pageName="secret"/>
-        {/* <Side side="front" name="home" extraHTML={<FrontHTML/>}/>
-        <Side side="top" name="about" extraHTML={<AboutHTML/>}/>
-        <Side side="right" name="projects" extraHTML={<ProjectsHTML/>}/>
-        <Side side="bottom" name="services" extraHTML={<ServicesHTML/>}/>
-        <Side side="left" name="contact" extraHTML={<ContactHTML/>}/>
-        <Side side="back" name="secret" extraHTML={<SecretHTML/>}/> */
-        }
+      <span id="appgradeText">
+        <div className="headerContainer">
+          <h1>app</h1>
+          <h1>grade</h1>
+          <h2>Upgrade your app</h2>
+        </div>
+      </span>
+      <span id="otherText">
+        <h1>Other text</h1>
+        <h2>We do things</h2>
+      </span>
+      <div className="arrow-container">
+        <div className="arrows" data-target='#banner1'>
+          <div className="arrow arrow-first"></div>
+          <div className="arrow arrow-second"></div>
+        </div>
       </div>
-
     </div>)
   }
 }
