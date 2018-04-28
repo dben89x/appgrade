@@ -31,22 +31,11 @@ module.exports = {
       }, {
         test: /\.scss$/,
         use: [ 'style-loader', 'css-loader', 'sass-loader'
-
-          // MiniCssExtractPlugin.loader, {
-          //   loader: "css-loader",
-          //   options: {
-          //     modules: true,
-          //     camelCase: true,
-          //     sourceMap: true
-          //   }
-          // }, {
-          //   loader: "sass-loader",
-          //   options: {
-          //     sourceMap: true,
-          //     precision: 8,
-          //     data: "$ENV: " + "PRODUCTION" + ";"
-          //   }
-          // }
+        ]
+      },{
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader'
         ]
       }
     ]

@@ -12,124 +12,144 @@ body {
   background: white;
   text-align: center;
 
-  .arrow-container {
-    opacity: 0;
-    display: none;
-    position: absolute;
-    bottom: 50px;
-    left: calc(50% - 25px);
-    cursor: pointer;
-    height: 50px;
-    width: 50px;
-
-    .arrows {
-      position: relative;
-      height: 100%;
-      // https://codepen.io/TommiTikall/pen/xZwpGR
-      .arrow {
-        opacity: 0;
-        position: absolute;
-        transform-origin: 50% 50%;
-        transform: translate3d(-50%, -50%, 0);
-        width: 50px;
-        height: 50px;
-        left: 75%;
-        top: 75%;
-        animation-timing-function: ease-in-out;
-        // -webkit-transition: all 0.3s ease-out;
-        // -moz-transition: all 0.3s ease-out;
-        // -o-transition: all 0.3s ease-out;
-        // -ms-transition: all 0.3s ease-out;
-      }
-
-      .arrow-first {
-        animation: arrow-movement $animation-speed ease-in-out infinite;
-      }
-
-      .arrow-second {
-        animation: arrow-movement $animation-speed $animation-delay ease-in-out infinite;
-      }
-
-      .arrow:after,
-      .arrow:before {
-        background: $darkBlue;
-        content: '';
-        display: block;
-        height: 2px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 30px;
-      }
-
-      .arrow:before {
-        transform: rotate(45deg) translateX(-23%);
-        transform-origin: top left;
-      }
-
-      .arrow:after {
-        transform: rotate(-45deg) translateX(23%);
-        transform-origin: top right;
-      }
-      @keyframes arrow-movement {
-        0% {
-          opacity: 0;
-          top: 45%;
-        }
-
-        70% {
-          opacity: 1;
-        }
-
-        100% {
-          opacity: 0;
-        }
-      }
-    }
-  }
-
-  #appgradeText {
-    left: 0;
-    font-family: monospace;
+  .banner-c-c {
     width: 100%;
     top: calc(50% - #{$h1_size});
+    left: 0;
     position: absolute;
     display: inline-block;
+  }
 
-    #headerContainer {
-      position: relative;
-    }
+  #heroContainer {
+    height: 100vh;
+    position: relative;
 
-    h1 {
+    .arrow-container {
       opacity: 0;
-      font-size: $h1_size;
-      display: inline;
-      letter-spacing: 50px;
+      display: none;
+      position: absolute;
+      bottom: 50px;
+      left: calc(50% - 25px);
+      cursor: pointer;
+      height: 50px;
+      width: 50px;
+
+      .arrows {
+        position: relative;
+        height: 100%;
+        // https://codepen.io/TommiTikall/pen/xZwpGR
+        .arrow {
+          opacity: 0;
+          position: absolute;
+          transform-origin: 50% 50%;
+          transform: translate3d(-50%, -50%, 0);
+          width: 50px;
+          height: 50px;
+          left: 75%;
+          top: 75%;
+          animation-timing-function: ease-in-out;
+          // -webkit-transition: all 0.3s ease-out;
+          // -moz-transition: all 0.3s ease-out;
+          // -o-transition: all 0.3s ease-out;
+          // -ms-transition: all 0.3s ease-out;
+        }
+
+        .arrow-first {
+          animation: arrow-movement $animation-speed ease-in-out infinite;
+        }
+
+        .arrow-second {
+          animation: arrow-movement $animation-speed $animation-delay ease-in-out infinite;
+        }
+
+        .arrow:after,
+        .arrow:before {
+          background: $darkBlue;
+          content: '';
+          display: block;
+          height: 2px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 30px;
+        }
+
+        .arrow:before {
+          transform: rotate(45deg) translateX(-23%);
+          transform-origin: top left;
+        }
+
+        .arrow:after {
+          transform: rotate(-45deg) translateX(23%);
+          transform-origin: top right;
+        }
+        @keyframes arrow-movement {
+          0% {
+            opacity: 0;
+            top: 45%;
+          }
+
+          70% {
+            opacity: 1;
+          }
+
+          100% {
+            opacity: 0;
+          }
+        }
+      }
     }
 
-    h1:nth-child(1) {
-      margin-right: 100px;
-      color: $red;
-    }
+    #appgradeText {
+      font-family: monospace;
 
-    h1:nth-child(2) {
-      margin-left: 100px;
-      color: $green;
-    }
+      #headerContainer {
+        position: relative;
+      }
 
-    h2 {
+      h1 {
+        opacity: 0;
+        font-size: $h1_size;
+        display: inline;
+        letter-spacing: 50px;
+      }
+
+      h1:nth-child(1) {
+        margin-right: 100px;
+        color: $red;
+      }
+
+      h1:nth-child(2) {
+        margin-left: 100px;
+        color: $green;
+      }
+
+      h2 {
+        color: $grey;
+        opacity: 0;
+        margin-top: 60px;
+        font-weight: 100;
+        font-size: 25px;
+        letter-spacing: 1px;
+      }
+    }
+    .banner {
+      display: inline-block;
+    }
+    #banner1 {
+      font-family: monospace;
       opacity: 0;
-      margin-top: 60px;
-      font-weight: 100;
-      font-size: 25px;
-      letter-spacing: 1px;
+      display: none;
+
+      #otherText {
+      }
     }
   }
 
-  #otherText {
-    opacity: 0;
-    display: none;
+  #contentContainer {
+    
   }
+
 }
 
 
